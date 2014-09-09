@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: d266beb3be49d3d42a81ac155c73ecd0
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - sectorPrefab: {fileID: 400000, guid: 7cc8a396e4ddb9b4b849400e7e4220cf, type: 2}
+  - spaceshipPrefab: {fileID: 400004, guid: fa280f7ec37c2ca439fda87d7c46050e, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

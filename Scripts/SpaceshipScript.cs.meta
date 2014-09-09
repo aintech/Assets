@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 778d347c8a2f55f40bdb6237a14e89bc
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - shipHullPrefab: {fileID: 400000, guid: 68b83e225262d144fbe72006b3ac08c0, type: 2}
+  - shipEnginePrefab: {fileID: 400000, guid: 9ef1edf3415c99648ba3ac29f86e8e69, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
