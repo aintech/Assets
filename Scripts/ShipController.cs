@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpaceshipController : MonoBehaviour {
+public class ShipController : MonoBehaviour {
 	
 	private float mainPower = 0.0f;
 	private float mainAcceleration;
@@ -18,8 +18,8 @@ public class SpaceshipController : MonoBehaviour {
 	private bool sPressed;
 	private bool dPressed;
 
-	public void initController (SpaceshipScript shipScript) {
-		ShipEngineScript engineScript = shipScript.getEngineScript();
+	public void initController (ShipScript shipScript) {
+		EngineScript engineScript = shipScript.getEngineScript();
 		mainAcceleration = engineScript.getMainAcceleration();
 		maxMainPower = engineScript.getMaxMainPower();
 		maxBackwardPower = engineScript.getMaxBackwardPower();

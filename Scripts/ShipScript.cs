@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpaceshipScript : MonoBehaviour {
+public class ShipScript : MonoBehaviour {
 
 	private Transform hull;
 	private Transform engine;
@@ -14,23 +14,23 @@ public class SpaceshipScript : MonoBehaviour {
 		if (hull == null && engine == null) {
 			hull = GameObject.Find("Hull").transform;
 			engine = GameObject.Find("Engine").transform;
-			hullScript = hull.GetComponent<ShipHullScript>();
-			engineScript = engine.GetComponent<ShipEngineScript>();
-			controller = transform.GetComponent<SpaceshipController>();
+			hullScript = hull.GetComponent<HullScript>();
+			engineScript = engine.GetComponent<EngineScript>();
+			controller = transform.GetComponent<ShipController>();
 		}
 	}
 
-	public void initSpaceship (HullType hullType, EngineType engineType, bool isPlayerShip) {
+	public void initShip (HullType hullType, EngineType engineType, bool isPlayerShip) {
 		hullScript.setHull(hullType);
 		engineScript.setEngine(engineType);
 		if (isPlayerShip) controller.initController(this);
 	}
 
-	public getHullScript getHullsScript () {
+	public HullScript getHullsScript () {
 		return hullScript;
 	}
 
-	public getEngineScript getEngineScript () {
+	public EngineScript getEngineScript () {
 		return engineScript;
 	}
 }

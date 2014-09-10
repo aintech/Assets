@@ -9,13 +9,13 @@ public class EngineScript : MonoBehaviour {
 
 	private SpriteRenderer engineRenderer;
 	
-	private float mainAcceleration;
+	private float mainAcceleration = 0.01f;
+	
+	private float rotationAcceleration = 0.2f;
 
 	private float maxMainPower;
 
 	private float maxBackwardPower;
-
-	private float rotationAcceleration;
 
 	private float maxRotationPower;
 
@@ -24,26 +24,32 @@ public class EngineScript : MonoBehaviour {
 	}
 
 	public void setEngine (EngineType engineType) {
+		setEngine(engineType, getRandomMainPower (engineType), getRandomRotatePower (engineType));
+	}
+
+	public void setEngine (EngineType engineType, float maxMainPower, float maxRotationPower) {
 		this.engineType = engineType;
+		this.maxMainPower = maxMainPower;
+		this.maxBackwardPower = -maxMainPower;
+		this.maxRotationPower = maxRotationPower;
+		setSprite ();
+	}
+	
+	private float getRandomMainPower (EngineType engineType) {
+		return Utils.getRandomValue (engineType.getMainPower(), 3);
+	}
+	
+	private float getRandomRotatePower (EngineType engineType) {
+		return Utils.getRandomValue (engineType.getRotatePower(), 3);
+	}
+
+	private void setSprite () {
 		switch (engineType) {
 		case EngineType.Force: engineRenderer.sprite = engines[0]; break;
 		case EngineType.Gradual: engineRenderer.sprite = engines[1]; break;
 		case EngineType.Proton: engineRenderer.sprite = engines[2]; break;
 		case EngineType.Allur: engineRenderer.sprite = engines[3]; break;
 		case EngineType.Quazar: engineRenderer.sprite = engines[4]; break;
-		}
-		initEngine ();
-	}
-
-	private void initEngine () {
-		switch (engineType) {
-		case EngineType.STANDART:
-			mainAcceleration = 0.01f;
-			maxMainPower = 0.25f;
-			maxBackwardPower = -0.25f;
-			rotationAcceleration = 0.2f;
-			maxRotationPower = 4.0f;
-			break;
 		}
 	}
 

@@ -5,13 +5,13 @@ public class MainScript : MonoBehaviour {
 
 	public Transform sectorPrefab;
 
-	public Transform spaceshipPrefab;
+	public Transform shipPrefab;
 
-	private Transform playerSpaceship;
+	private Transform playerShip;
 
 	private Transform mainCamera;
 
-	private SpaceshipScript playerSpaceshipScript;
+	private ShipScript playerShipScript;
 
 	private int currentSectorNumber;
 
@@ -29,21 +29,21 @@ public class MainScript : MonoBehaviour {
 	private float sectorImageHeight = 81.9f;
 
 	void Awake () {
-		if (playerSpaceship == null) {
+		if (playerShip == null) {
 			currentSector = Instantiate(sectorPrefab) as Transform;
 			currentSector.name = "Center Sector";
 			currentSectorScript = currentSector.GetComponent<SectorScript>();
-			playerSpaceship = Instantiate(spaceshipPrefab) as Transform;
-			playerSpaceship.name = "Player Ship";
-			playerSpaceshipScript = playerSpaceship.GetComponent<SpaceshipScript>();
+			playerShip = Instantiate(shipPrefab) as Transform;
+			playerShip.name = "Player Ship";
+			playerShipScript = playerShip.GetComponent<ShipScript>();
 			init();
 		}
 	}
 
 	private void init () {
-		playerSpaceshipScript.initSpaceship(true, ShipHullScript.HullType.ARGO, ShipEngineScript.EngineType.STANDART);
+		playerShipScript.initShip(HullType.Argo, EngineType.Force, true);
 		mainCamera = Camera.main.transform;
-		mainCamera.GetComponent<CameraController>().init(playerSpaceship);
+		mainCamera.GetComponent<CameraController>().init(playerShip);
 		initSectors();
 	}
 

@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 1eeb24d3e34dac444bd7e4a98e0a2386
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - handTexture: {fileID: 2800000, guid: ec8c83a08f2d3bc48a331c34799ab592, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
